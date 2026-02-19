@@ -1,16 +1,13 @@
 class Patient:
-    def __init__(self, mrn, name, age, blood_type):
-        self.mrn = mrn
+    def __init__(self,name,age,mrn):
         self.name = name
         self.age = age
-        self.blood_type = blood_type
-        print(f"Patient {self.name} created successfully.")
-
+        self.mrn = mrn
     def display_info(self):
-        print(f"[{self.mrn}] {self.name} | Age: {self.age} | Type: {self.blood_type}")
+        print ("Name:",self.name)
+        print ("Age:",self.age)
+        print ("MRN:",self.mrn)
 
 
-p1 = Patient("101", "Ali Khan", 34, "O+")
+p1 = Patient("Ali",24,101)
 p1.display_info()
-
-

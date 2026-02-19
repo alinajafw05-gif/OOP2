@@ -1,24 +1,34 @@
 class Patient:
-    # Default values for mrn and blood_type
-    def __init__(self, name, age, mrn="Temp-000", blood_type="Unknown"):
-        self.mrn = mrn
-        self.name = name
-        self.age = age
-        self.blood_type = blood_type
+    def __init__(self, name, age, mrn):
+        self.__name = name
+        self.__age = age
+        self.__mrn = mrn
 
-    def display_info(self):
-        print(f"[{self.mrn}] {self.name} | Age: {self.age} | Type: {self.blood_type}")
+    def get_name(self):
+        return self.__name
 
-    # Corrected update_name method
-    def update_name(self, name):
-        self.name = name  # FIX: Now we correctly update the object's name
-        print(f"Inside method: Name changed to {name}")
+    def get_age(self):
+        return self.__age   
+
+    def get_mrn(self):
+        return self.__mrn
+
+    # Activity 03: Setter with validation
+    def set_age(self, new_age):
+        if new_age > 0 and new_age < 120:
+            self.__age = new_age
+            print(f"Success: Age updated to {self.__age}")
+        else:
+            print(f"Error: {new_age} is not a valid age.")
 
 
-# --- Testing the Correction ---
-p3 = Patient("Ali", 25)
-print(f"\nBefore Update: {p3.name}")
+p1 = Patient("Najaf", 12, 203)
 
-p3.update_name("Najaf")
+print("Final Age:", p1.get_age())
 
-print(f"After Update (Correct): {p3.name}")
+p1.set_age(-5)     # invalid
+p1.set_age(120)    # invalid
+p1.set_age(46)     # valid
+
+print(f"New Age: {p1.get_age()}")
+
